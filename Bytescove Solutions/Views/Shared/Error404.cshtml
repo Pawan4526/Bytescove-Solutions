@@ -1,0 +1,15 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+<!-- Content -->
+<div class="content-wrapper">
+    <section class="py-5 error-page padding-remove-on-mobile">
+        <div class="container pt-5 mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-7 text-center">
+                    <img src="@Url.Content("~/images/404.png")" class="w-100 mb-5">
+                    <h2 class="mb-4 font-weight-bold">Page Not Found</h2>
+                    <a href="@Url.Action("Index","Home")" class="btn-primary-home">Go to Home Page</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

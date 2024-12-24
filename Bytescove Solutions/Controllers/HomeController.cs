@@ -1,3 +1,4 @@
+using Bytescove_Solutions.CommonServices;
 using Bytescove_Solutions.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -18,15 +19,54 @@ namespace Bytescove_Solutions.Controllers
             return View();
         }
 
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
+        [Route("{type}")]
+        public IActionResult CmsPage(string type)
+        {
+            string viewName = "";
+            try
+            {
+                viewName = Util.GetViewName(type);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return View(viewName);
+        }
 
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
+        [Route("Error404")]
+        public IActionResult HandleError()
+        {
+            return View("~/Views/Shared/Error404.cshtml");
+        }
+
+        [HttpPost]
+        public IActionResult EmailSend(EmailViewModel model)
+        {
+            var status = false;
+            var message = "";
+            var bodyContent = "";
+            try
+            {
+                bodyContent += "Name : " + model.Name + "<br />";
+                bodyContent += "Email Address : " + model.Email + "<br />";
+                bodyContent += "Contact No. : " + model.Phone + "<br />";
+                if (model.Skype != null)
+                {
+                    bodyContent += "Skype/Whats App : " + model.Skype + "<br />";
+                }
+                bodyContent += "Looking For : " + model.LookingFor + "<br />";
+                bodyContent += "Description : " + model.Body;
+                Util.SendMail("", model.LookingFor, bodyContent, "", model.Attachment);
+                status = true;
+                message = "mail sent successfully.";
+            }
+            catch (Exception ex)
+            {
+                message = ex.InnerException != null ? ex.InnerException.InnerException != null ? ex.InnerException.InnerException.Message : ex.InnerException.Message : ex.Message;
+                message = message + " : mail sending failure.";
+            }
+            return Json(new { status, message });
+        }
     }
 }

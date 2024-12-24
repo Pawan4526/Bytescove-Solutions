@@ -1,21 +1,45 @@
 ﻿<!doctype html>
 <html lang="en">
-
+@{
+    var faqWrapper = ViewBag.IsContact != null ? "mt-0 mb-0" : "";
+    var footerWrapper = ViewBag.IsContact != null ? "mt-0" : "";
+    var footerSec = ViewBag.IsContact != null ? "pt-0" : "";
+}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Site Title -->
     <title>@ViewData["Title"]</title>
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("/assets/images/favicon.png")">
     <!-- Owl carousel css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("/assets/css/owl.carousel.min.css")">
     <!-- Bootstrap v5.2.x css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("/assets/css/bootstrap.min.css")">
     <!-- Style CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("/assets/css/style.css")">
     <!-- Responsive CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("/assets/css/responsive.css")">
+
+    <style>
+        header.fixed {
+            position: sticky;
+            background-color: #F4F1FF;
+            z-index: 1000;
+            top: 10px;
+            margin: auto;
+            width:100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: add shadow for better visibility */
+            transform: translateY(-10px); /* Adds a nice effect when it becomes sticky */
+            transition: all 0.5s ease;
+        }
+
+        /* @@media (min-width: 1200px) {
+            .contact-form .container {
+                max-width: 960px !important;
+            }
+        } */
+    </style>
 </head>
 
 <body>
@@ -23,132 +47,49 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="header-sec">
-                    <a class="navbar-brand" href="index.html"><img src="assets/images/logo-main.png" alt=""></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
-                            aria-label="Toggle navigation">
+                    <a class="navbar-brand" href="@Url.Action("Index","Home")"><img src="@Url.Content("/assets/images/logo-main.png")" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
                         <ul class="navbar-nav ">
-                            <li class="nav-item">
-                                <a class="nav-link " href="index.html">Home</a>
-                            </li>
+                            <li class="nav-item"><a class="nav-link " href="@Url.Action("Index","Home")">Home</a></li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link " role="button" data-bs-toggle="dropdown"
-                                   aria-expanded="false">Services</a>
+                                <a href="#" class="nav-link " role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                                 <div class="dropdown-menu dropdown-menu-sec-bg">
-
                                     <ul class=" dropdown-menu-sec">
-                                        <li class="dropdown-submenu">
-                                            <a href="#" class="dropdown-item  dropdown-toggle" role="button"
-                                               data-bs-toggle="dropdown" aria-expanded="false">
-                                                Mobile App
-                                                development
-                                            </a>
-                                            <div class="dropdown-menu">
-                                                <ul class="dropdown-submenu-bg">
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">
-                                                            API services (RESTful or
-                                                            GraphQL)
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">
-                                                            Data synchronization
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Microservices architecture</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li><a href="#" class="dropdown-item dropdown-toggle">Web development</a></li>
-                                        <li>
-                                            <a href="#" class="dropdown-item  dropdown-toggle">Destination</a>
-
-                                        </li>
-                                        <li><a href="#" class="dropdown-item dropdown-toggle">WordPress </a></li>
-                                        <li>
-                                            <a href="#" class="dropdown-item dropdown-toggle">
-                                                Custom Software
-                                                development
-                                            </a>
-                                        </li>
-                                        <li><a href="#" class="dropdown-item dropdown-toggle">UI UX Design</a></li>
+                                        <li class="dropdown-submenu"><a href="@Url.Action("CmsPage","Home",new{ type = PageType.MobileAppDevelopment})" class="dropdown-item">Mobile App Development</a></li>
+                                        <li><a href="@Url.Action("CmsPage","Home",new{ type = PageType.WebDevelopment})" class="dropdown-item ">Web development</a></li>
+                                        <li><a href="#" class="dropdown-item  ">Destination</a></li>
+                                        <li><a href="#" class="dropdown-item ">WordPress </a></li>
+                                        <li><a href="#" class="dropdown-item "> Custom Software Development </a></li>
+                                        <li><a href="#" class="dropdown-item ">UI UX Design</a></li>
                                     </ul>
                                 </div>
                             </li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("CmsPage","Home",new{ type = PageType.Industry})">Industry</a></li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
-                                   aria-expanded="false">Industry</a>
+                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
                                 <div class="dropdown-menu dropdown-menu-sec-bg">
-
                                     <ul class=" dropdown-menu-sec">
-                                        <li class="dropdown-submenu">
-                                            <a href="#" class="dropdown-item  dropdown-toggle" role="button"
-                                               data-bs-toggle="dropdown" aria-expanded="false">Education </a>
-                                            <div class="dropdown-menu">
-                                                <ul class="dropdown-submenu-bg">
-                                                    <li><a href="#" class="dropdown-item">Elementary Schools</a></li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">
-                                                            Undergraduate Programs
-                                                        </a>
-                                                    </li>
-                                                    <li><a href="#" class="dropdown-item">Online Universities</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li><a href="#" class="dropdown-item dropdown-toggle">Ecommerce</a></li>
-                                        <li>
-                                            <a href="#" class="dropdown-item  dropdown-toggle">Fintech</a>
-
-                                        </li>
-                                        <li><a href="#" class="dropdown-item dropdown-toggle">It Services </a></li>
-                                        <li><a href="#" class="dropdown-item dropdown-toggle">Fantasy Sports</a></li>
-                                        <li><a href="#" class="dropdown-item dropdown-toggle">Sports and Game</a></li>
+                                        <li><a href="@Url.Action("CmsPage","Home",new{ type = PageType.AboutUs})" class="dropdown-item  ">About Us </a></li>
+                                        <li><a href="@Url.Action("CmsPage","Home",new{ type = PageType.Portfolio})" class="dropdown-item ">Work Portfolio</a></li>
+                                        <li><a href="@Url.Action("CmsPage","Home",new{ type = PageType.Career})" class="dropdown-item  ">Career</a></li>
+                                        <li><a href="@Url.Action("CmsPage","Home",new{ type = PageType.OurTeam})" class="dropdown-item ">Our Team</a></li>
+                                        <li><a href="@Url.Action("CmsPage","Home",new{ type = PageType.Blog})" class="dropdown-item ">Blog</a></li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
-                                   aria-expanded="false">Company</a>
-                                <div class="dropdown-menu dropdown-menu-sec-bg">
-
-                                    <ul class=" dropdown-menu-sec">
-                                        <li>
-                                            <a href="aboutus.html" class="dropdown-item  dropdown-toggle">About Us </a>
-
-                                        </li>
-                                        <li><a href="portfolio.html" class="dropdown-item dropdown-toggle">Work Portfolio</a></li>
-                                        <li>
-                                            <a href="#" class="dropdown-item  dropdown-toggle">Career</a>
-
-                                        </li>
-                                        <li><a href="ourteam.html" class="dropdown-item dropdown-toggle">Our Team</a></li>
-                                        <li><a href="#" class="dropdown-item dropdown-toggle">Fantasy Sports</a></li>
-                                        <li><a href="#" class="dropdown-item dropdown-toggle">Blog</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contactus.html">Contact Us</a>
-                            </li>
-
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("CmsPage","Home",new{ type = PageType.ContactUs})">Contact Us</a></li>
                         </ul>
-
                     </div>
                 </div>
             </nav>
         </div>
     </header>
-
     @RenderBody()
 
-    <section class="partner-wrapper">
+    <section class="partner-wrapper d-none">
         <div class="container">
             <div class="partner-sec">
                 <div class="thm-heading">
@@ -156,17 +97,17 @@
                 </div>
                 <div class="partnerlist">
                     <ul>
-                        <li><img src="assets/images/partner1.svg" alt=""></li>
-                        <li><img src="assets/images/partner2.svg" alt=""></li>
-                        <li><img src="assets/images/partner3.svg" alt=""></li>
-                        <li><img src="assets/images/partner4.svg" alt=""></li>
-                        <li><img src="assets/images/partner5.svg" alt=""></li>
+                        <li><img src="@Url.Content("/assets/images/partner1.svg")" alt=""></li>
+                        <li><img src="@Url.Content("/assets/images/partner2.svg")" alt=""></li>
+                        <li><img src="@Url.Content("/assets/images/partner3.svg")" alt=""></li>
+                        <li><img src="@Url.Content("/assets/images/partner4.svg")" alt=""></li>
+                        <li><img src="@Url.Content("/assets/images/partner5.svg")" alt=""></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-    <section class="faq-wrapper">
+    <section class="faq-wrapper @faqWrapper">
         <div class="container">
             <div class="faq-sec">
                 <div class="faq-con">
@@ -269,129 +210,132 @@
             </div>
         </div>
     </section>
-    <section class="contact-form">
-        <div class="container">
-            <div class="contact-sec">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="contact-list-sec">
-                            <div class="thm-heading">
-                                <h2>
-                                    Contact <br>
-                                    Information
-                                </h2>
-                                <p>Say something to start a live chat!</p>
-                            </div>
-                            <div class="contact-list">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <div class="contact-list-con">
-                                                <img src="assets/images/call-icon.svg" alt="">
-                                                <span>+1012 3456 789</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="contact-list-con">
-                                                <img src="assets/images/email-icon.svg" alt="">
-                                                <span>demo@gmail.com</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="contact-list-con">
-                                                <img src="assets/images/loction-icon.svg" alt="">
-                                                <span>
-                                                    132 Dartmouth Street Boston, <br> Massachusetts 02156 United
-                                                    States
-                                                </span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
+    @if (ViewBag.IsContact == null)
+    {
+        <section class="contact-form">
+            <div class="container">
+                <div class="contact-sec">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="contact-list-sec">
+                                <div class="thm-heading">
+                                    <h2>
+                                        Contact <br>
+                                        Information
+                                    </h2>
+                                    <p>Say something to start a live chat!</p>
+                                </div>
+                                <div class="contact-list">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <div class="contact-list-con">
+                                                    <img src="@Url.Content("/assets/images/call-icon.svg")" alt="">
+                                                    <span>+1012 3456 789</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="contact-list-con">
+                                                    <img src="@Url.Content("/assets/images/email-icon.svg")" alt="">
+                                                    <span>demo@gmail.com</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="contact-list-con">
+                                                    <img src="@Url.Content("/assets/images/loction-icon.svg")" alt="">
+                                                    <span>
+                                                        132 Dartmouth Street Boston, <br> Massachusetts 02156 United
+                                                        States
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="contact-form-sec">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="contact-item">
-                                        <label for="firstname" class="form-label">First Name</label>
-                                        <input type="text" class="form-control" id="firstname">
+                        <div class="col-lg-7">
+                            <div class="contact-form-sec">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="contact-item">
+                                            <label for="firstname" class="form-label">First Name</label>
+                                            <input type="text" class="form-control" id="firstname">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="contact-item">
-                                        <label for="lastname" class="form-label">Last Name</label>
-                                        <input type="email" class="form-control" id="lastname">
+                                    <div class="col-6">
+                                        <div class="contact-item">
+                                            <label for="lastname" class="form-label">Last Name</label>
+                                            <input type="email" class="form-control" id="lastname">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="contact-item">
-                                        <label for="emailname" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="emailname">
+                                    <div class="col-6">
+                                        <div class="contact-item">
+                                            <label for="emailname" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="emailname">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="contact-item">
-                                        <label for="numbername" class="form-label">Phone Number</label>
-                                        <input type="email" class="form-control" id="numbername">
+                                    <div class="col-6">
+                                        <div class="contact-item">
+                                            <label for="numbername" class="form-label">Phone Number</label>
+                                            <input type="email" class="form-control" id="numbername">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="subject-sec">
-                                        <h4>Select Subject?</h4>
-                                        <div class="subject-list">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                       id="flexCheckInquiry">
-                                                <label class="form-check-label" for="flexCheckInquiry">
-                                                    General Inquiry
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                       id="flexCheckDevelopmentt">
-                                                <label class="form-check-label" for="flexCheckDevelopment">
-                                                    Web and App Development
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                       id="flexCheckdesign">
-                                                <label class="form-check-label" for="flexCheckdesign">
-                                                    Graphic UI UX design
-                                                </label>
+                                    <div class="col-12">
+                                        <div class="subject-sec">
+                                            <h4>Select Subject?</h4>
+                                            <div class="subject-list">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                           id="flexCheckInquiry">
+                                                    <label class="form-check-label" for="flexCheckInquiry">
+                                                        General Inquiry
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                           id="flexCheckDevelopmentt">
+                                                    <label class="form-check-label" for="flexCheckDevelopment">
+                                                        Web and App Development
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                           id="flexCheckdesign">
+                                                    <label class="form-check-label" for="flexCheckdesign">
+                                                        Graphic UI UX design
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="contact-item textarea-sec">
-                                        <label for="messagename" class="form-label">Message</label>
-                                        <textarea class="form-control " id="messagename" placeholder="Write your message.." rows="4"></textarea>
+                                    <div class="col-12">
+                                        <div class="contact-item textarea-sec">
+                                            <label for="messagename" class="form-label">Message</label>
+                                            <textarea class="form-control " id="messagename" placeholder="Write your message.." rows="4"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="contact-form-btn">
-                            <button class="thm-btn"> Send Message</button>
+                            <div class="contact-form-btn">
+                                <button class="thm-btn"> Send Message</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <footer class="footer-wrapper">
+        </section>
+    }
+    <footer class="footer-wrapper @footerWrapper">
         <div class="container">
-            <div class="footer-sec">
+            <div class="footer-sec @footerSec">
                 <div class="footer-logo m-auto text-center">
                     <a href="#">
-                        <img src="assets/images/logo-main.png" alt="">
+                        <img src="@Url.Content("/assets/images/logo-main.png")" alt="">
                     </a>
                 </div>
                 <div class="thm-heading text-center">
@@ -408,12 +352,12 @@
             <div class="container">
                 <ul>
                     <li>
-                        <a href="aboutus.html" class="footer-menu-link">
+                        <a href="@Url.Action("CmsPage","Home",new{ type = PageType.AboutUs})" class="footer-menu-link">
                             About us
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="footer-menu-link">
+                        <a href="@Url.Action("CmsPage","Home",new{ type = PageType.Career})" class="footer-menu-link">
                             Career
                         </a>
                     </li>
@@ -440,89 +384,24 @@
                 <span class="copyright-con">Copyright 2025/Bytscove</span>
                 <div class="copyright-list">
                     <ul>
-                        <li><a href="#"><img src="assets/images/facebook-icon.svg" alt=""></a></li>
-                        <li><a href="#"><img src="assets/images/instagram-icon.svg" alt=""></a></li>
-                        <li><a href="#"><img src="assets/images/youtube-icon.svg" alt=""></a></li>
+                        <li><a href="#"><img src="@Url.Content("/assets/images/facebook-icon.svg")" alt=""></a></li>
+                        <li><a href="#"><img src="@Url.Content("/assets/images/instagram-icon.svg")" alt=""></a></li>
+                        <li><a href="#"><img src="@Url.Content("/assets/images/youtube-icon.svg")" alt=""></a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <!-- all js here -->
     <!-- jquery latest version -->
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("/assets/js/jquery.min.js")"></script>
     <!-- bootstrap js -->
-    <script type="text/javascript" src="assets/js/Bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("/assets/js/Bootstrap.bundle.min.js")"></script>
     <!-- owl carousel js -->
-    <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("/assets/js/owl.carousel.min.js")"></script>
 
     <script>
-        $('#services-slider').owlCarousel({
-            margin: 20,
-            loop: false,
-            stagePadding: 100,
-            nav: true,
-            dots: false,
-            responsive: {
-                0: {
-                    items: 1,
-                    stagePadding: 20,
-                    loop: true,
-                },
-                600: {
-                    items: 2,
-                    stagePadding: 30,
-                },
-                991: {
-                    items: 3,
-                    stagePadding: 50,
-                },
-                1024: {
-                    items: 4
-                }
-            }
-        });
-        $('#ourteam-slider').owlCarousel({
-            margin: 20,
-            loop: false,
-            nav: false,
-            dots: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                480: {
-                    items: 2
-                },
-                991: {
-                    items: 3
-                },
-                1000: {
-                    items: 4
-                }
-            }
-        });
-        $('#clients-slider').owlCarousel({
-            margin: 20,
-            loop: false,
-            nav: false,
-            dots: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                480: {
-                    items: 2
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 4
-                }
-            }
-        });
         document.addEventListener('DOMContentLoaded', function () {
             const inputs = document.querySelectorAll('.contact-item .form-control');
 
@@ -544,6 +423,90 @@
                 });
             });
         });
+        // script.js
+        $(document).ready(function () {
+
+            var header = $('.header-wrapper');
+            var sticky = header.offset().top;
+            var imgWidth = $('.navbar-brand img')[0].width;
+
+            $(window).scroll(function () {
+                if (window.pageYOffset > sticky) {
+                    header.addClass('fixed');
+                    $('.navbar-brand img')[0].width = imgWidth - 110;
+                } else {
+                    header.removeClass('fixed');
+                    $('.navbar-brand img')[0].width = imgWidth + 110;
+                }
+            });
+
+            $('#services-slider').owlCarousel({
+                margin: 20,
+                loop: false,
+                stagePadding: 100,
+                nav: true,
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 1,
+                        stagePadding: 20,
+                        loop: true,
+                    },
+                    600: {
+                        items: 2,
+                        stagePadding: 30,
+                    },
+                    991: {
+                        items: 3,
+                        stagePadding: 50,
+                    },
+                    1024: {
+                        items: 4
+                    }
+                }
+            });
+            $('#ourteam-slider').owlCarousel({
+                margin: 20,
+                loop: false,
+                nav: false,
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    480: {
+                        items: 2
+                    },
+                    991: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 4
+                    }
+                }
+            });
+            $('#clients-slider').owlCarousel({
+                margin: 20,
+                loop: false,
+                nav: false,
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    480: {
+                        items: 2
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 4
+                    }
+                }
+            });
+        });
+
     </script>
 </body>
 </html>
