@@ -1,0 +1,549 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Site Title -->
+    <title>@ViewData["Title"]</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <!-- Owl carousel css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
+    <!-- Bootstrap v5.2.x css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+</head>
+
+<body>
+    <header class="header-wrapper">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="header-sec">
+                    <a class="navbar-brand" href="index.html"><img src="assets/images/logo-main.png" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item">
+                                <a class="nav-link " href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link " role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false">Services</a>
+                                <div class="dropdown-menu dropdown-menu-sec-bg">
+
+                                    <ul class=" dropdown-menu-sec">
+                                        <li class="dropdown-submenu">
+                                            <a href="#" class="dropdown-item  dropdown-toggle" role="button"
+                                               data-bs-toggle="dropdown" aria-expanded="false">
+                                                Mobile App
+                                                development
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <ul class="dropdown-submenu-bg">
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">
+                                                            API services (RESTful or
+                                                            GraphQL)
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">
+                                                            Data synchronization
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Microservices architecture</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li><a href="#" class="dropdown-item dropdown-toggle">Web development</a></li>
+                                        <li>
+                                            <a href="#" class="dropdown-item  dropdown-toggle">Destination</a>
+
+                                        </li>
+                                        <li><a href="#" class="dropdown-item dropdown-toggle">WordPress </a></li>
+                                        <li>
+                                            <a href="#" class="dropdown-item dropdown-toggle">
+                                                Custom Software
+                                                development
+                                            </a>
+                                        </li>
+                                        <li><a href="#" class="dropdown-item dropdown-toggle">UI UX Design</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false">Industry</a>
+                                <div class="dropdown-menu dropdown-menu-sec-bg">
+
+                                    <ul class=" dropdown-menu-sec">
+                                        <li class="dropdown-submenu">
+                                            <a href="#" class="dropdown-item  dropdown-toggle" role="button"
+                                               data-bs-toggle="dropdown" aria-expanded="false">Education </a>
+                                            <div class="dropdown-menu">
+                                                <ul class="dropdown-submenu-bg">
+                                                    <li><a href="#" class="dropdown-item">Elementary Schools</a></li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">
+                                                            Undergraduate Programs
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="#" class="dropdown-item">Online Universities</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li><a href="#" class="dropdown-item dropdown-toggle">Ecommerce</a></li>
+                                        <li>
+                                            <a href="#" class="dropdown-item  dropdown-toggle">Fintech</a>
+
+                                        </li>
+                                        <li><a href="#" class="dropdown-item dropdown-toggle">It Services </a></li>
+                                        <li><a href="#" class="dropdown-item dropdown-toggle">Fantasy Sports</a></li>
+                                        <li><a href="#" class="dropdown-item dropdown-toggle">Sports and Game</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false">Company</a>
+                                <div class="dropdown-menu dropdown-menu-sec-bg">
+
+                                    <ul class=" dropdown-menu-sec">
+                                        <li>
+                                            <a href="aboutus.html" class="dropdown-item  dropdown-toggle">About Us </a>
+
+                                        </li>
+                                        <li><a href="portfolio.html" class="dropdown-item dropdown-toggle">Work Portfolio</a></li>
+                                        <li>
+                                            <a href="#" class="dropdown-item  dropdown-toggle">Career</a>
+
+                                        </li>
+                                        <li><a href="ourteam.html" class="dropdown-item dropdown-toggle">Our Team</a></li>
+                                        <li><a href="#" class="dropdown-item dropdown-toggle">Fantasy Sports</a></li>
+                                        <li><a href="#" class="dropdown-item dropdown-toggle">Blog</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contactus.html">Contact Us</a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <section class="partner-wrapper">
+        <div class="container">
+            <div class="partner-sec">
+                <div class="thm-heading">
+                    <p>Trusted by the best in the world</p>
+                </div>
+                <div class="partnerlist">
+                    <ul>
+                        <li><img src="assets/images/partner1.svg" alt=""></li>
+                        <li><img src="assets/images/partner2.svg" alt=""></li>
+                        <li><img src="assets/images/partner3.svg" alt=""></li>
+                        <li><img src="assets/images/partner4.svg" alt=""></li>
+                        <li><img src="assets/images/partner5.svg" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="faq-wrapper">
+        <div class="container">
+            <div class="faq-sec">
+                <div class="faq-con">
+                    <div class="thm-heading">
+                        <h2>Do you have questions?</h2>
+                    </div>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    What is your return policy?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                 data-bs-parent="#accordionExample">
+                                <div class="faq-collapse-con">
+                                    <p>
+                                        We offer a 15-day return window for a full refund or exchange on unused items.
+                                        Returns must include original packaging and proof of purchase for processing.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Do you offer international shipping?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                 data-bs-parent="#accordionExample">
+                                <div class="faq-collapse-con">
+                                    <p>
+                                        Yes, we offer international shipping to most countries. Shipping fees and
+                                        delivery times vary based on location.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    What if I receive a damaged or defective product?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                 data-bs-parent="#accordionExample">
+                                <div class="faq-collapse-con">
+                                    <p>
+                                        If you receive a damaged or defective product, please contact our customer
+                                        support within 15 days for a full refund or exchange. Include photos of the
+                                        damaged item and your proof of purchase.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Are the product colors on the website accurate?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                 data-bs-parent="#accordionExample">
+                                <div class="faq-collapse-con">
+                                    <p>
+                                        While we strive to display our products' colors as accurately as possible, there
+                                        may be slight variations due to different screen settings.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    How do I contact customer support?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                 data-bs-parent="#accordionExample">
+                                <div class="faq-collapse-con">
+                                    <p>
+                                        You can contact our customer support team via email at support@example.com or by
+                                        calling our hotline at 1-800-123-4567.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-btn thm-btn-sec w-100 m-0 bg-transparent justify-content-between">
+                        <button type="button" class="thm-light-btn text-white">My question is not here.</button>
+                        <button class="thm-btn">Connect With us </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact-form">
+        <div class="container">
+            <div class="contact-sec">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="contact-list-sec">
+                            <div class="thm-heading">
+                                <h2>
+                                    Contact <br>
+                                    Information
+                                </h2>
+                                <p>Say something to start a live chat!</p>
+                            </div>
+                            <div class="contact-list">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <div class="contact-list-con">
+                                                <img src="assets/images/call-icon.svg" alt="">
+                                                <span>+1012 3456 789</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="contact-list-con">
+                                                <img src="assets/images/email-icon.svg" alt="">
+                                                <span>demo@gmail.com</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="contact-list-con">
+                                                <img src="assets/images/loction-icon.svg" alt="">
+                                                <span>
+                                                    132 Dartmouth Street Boston, <br> Massachusetts 02156 United
+                                                    States
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="contact-form-sec">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="contact-item">
+                                        <label for="firstname" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstname">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="contact-item">
+                                        <label for="lastname" class="form-label">Last Name</label>
+                                        <input type="email" class="form-control" id="lastname">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="contact-item">
+                                        <label for="emailname" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="emailname">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="contact-item">
+                                        <label for="numbername" class="form-label">Phone Number</label>
+                                        <input type="email" class="form-control" id="numbername">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="subject-sec">
+                                        <h4>Select Subject?</h4>
+                                        <div class="subject-list">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                       id="flexCheckInquiry">
+                                                <label class="form-check-label" for="flexCheckInquiry">
+                                                    General Inquiry
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                       id="flexCheckDevelopmentt">
+                                                <label class="form-check-label" for="flexCheckDevelopment">
+                                                    Web and App Development
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                       id="flexCheckdesign">
+                                                <label class="form-check-label" for="flexCheckdesign">
+                                                    Graphic UI UX design
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="contact-item textarea-sec">
+                                        <label for="messagename" class="form-label">Message</label>
+                                        <textarea class="form-control " id="messagename" placeholder="Write your message.." rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-form-btn">
+                            <button class="thm-btn"> Send Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-wrapper">
+        <div class="container">
+            <div class="footer-sec">
+                <div class="footer-logo m-auto text-center">
+                    <a href="#">
+                        <img src="assets/images/logo-main.png" alt="">
+                    </a>
+                </div>
+                <div class="thm-heading text-center">
+                    <p>
+                        From critical skills to technical topics, BookLab supports your <br> professional development.
+                        From critical skills to technical topics, <br> BookLab supports your professional development.
+                        From critical skills to technical topics, BookLab supports your professional development. From
+                        critical skills to technical topics, BookLab supports your professional development.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-menu">
+            <div class="container">
+                <ul>
+                    <li>
+                        <a href="aboutus.html" class="footer-menu-link">
+                            About us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-menu-link">
+                            Career
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-menu-link">
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-menu-link">
+                            Privcy policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-menu-link">
+                            Book A Call
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright-sec">
+                <span class="copyright-con">Copyright 2025/Bytscove</span>
+                <div class="copyright-list">
+                    <ul>
+                        <li><a href="#"><img src="assets/images/facebook-icon.svg" alt=""></a></li>
+                        <li><a href="#"><img src="assets/images/instagram-icon.svg" alt=""></a></li>
+                        <li><a href="#"><img src="assets/images/youtube-icon.svg" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- all js here -->
+    <!-- jquery latest version -->
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <!-- bootstrap js -->
+    <script type="text/javascript" src="assets/js/Bootstrap.bundle.min.js"></script>
+    <!-- owl carousel js -->
+    <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+
+    <script>
+        $('#services-slider').owlCarousel({
+            margin: 20,
+            loop: false,
+            stagePadding: 100,
+            nav: true,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1,
+                    stagePadding: 20,
+                    loop: true,
+                },
+                600: {
+                    items: 2,
+                    stagePadding: 30,
+                },
+                991: {
+                    items: 3,
+                    stagePadding: 50,
+                },
+                1024: {
+                    items: 4
+                }
+            }
+        });
+        $('#ourteam-slider').owlCarousel({
+            margin: 20,
+            loop: false,
+            nav: false,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                480: {
+                    items: 2
+                },
+                991: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+        $('#clients-slider').owlCarousel({
+            margin: 20,
+            loop: false,
+            nav: false,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                480: {
+                    items: 2
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const inputs = document.querySelectorAll('.contact-item .form-control');
+
+            inputs.forEach(input => {
+                const parent = input.closest('.contact-item');
+
+                if (input.value) {
+                    parent.classList.add('label-active');
+                }
+
+                input.addEventListener('focus', () => {
+                    parent.classList.add('label-active');
+                });
+
+                input.addEventListener('blur', () => {
+                    if (!input.value) {
+                        parent.classList.remove('label-active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
